@@ -9,7 +9,7 @@ spec:
 
   ingress_type: ingress
   ingress_tls_secret: eda-secret-tls
-  hostname: eda.example.com
+  hostname: awx01.veganball.de
 
   automation_server_url: https://awx01.veganball.de/
   automation_server_ssl_verify: no
