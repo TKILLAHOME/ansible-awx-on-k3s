@@ -7,10 +7,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - eda.example.com
+        - awx01.veganball.de
       secretName: eda-secret-tls
   rules:
-    - host: eda.example.com
+    - host: awx01.veganball.de
       http:
         paths:
           - path: /webhooks/demo
