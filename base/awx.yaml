@@ -11,11 +11,11 @@ spec:
   #   https://github.com/ansible/awx/blob/22.0.0/INSTALL.md
 
   admin_user: admin
-  admin_password_secret: awx-admin-password
+  admin_password_secret: awx123456!
 
   ingress_type: ingress
   ingress_hosts:
-    - hostname: awx.example.com
+    - hostname: awx01.veganball.de
       tls_secret: awx-secret-tls
 
   postgres_configuration_secret: awx-postgres-configuration
