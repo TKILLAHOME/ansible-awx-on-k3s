@@ -83,7 +83,7 @@ Then, comment out or delete reference to `awx.yaml` in `base/kustomization.yaml`
 resources:
   - pv.yaml
   - pvc.yaml
-  # - awx.yaml     👈👈👈
+  # - awx.yaml   👈👈👈
 ```
 
 Then create Namespace, PVs, and Secrets. Now all required resources that will be referenced in the `spec` of the AWX instance have been created.
@@ -245,7 +245,7 @@ $ kubectl delete -k base
 secret "awx-admin-password" deleted
 secret "awx-postgres-configuration" deleted
 secret "awx-secret-tls" deleted
-persistentvolume "awx-postgres-13-volume" deleted
+persistentvolume "awx-postgres-15-volume" deleted
 persistentvolume "awx-projects-volume" deleted
 persistentvolumeclaim "awx-projects-claim" deleted
 
