@@ -32,7 +32,7 @@ An example simple playbook for Ansible is also provided in this repository. This
 | - | - | - |
 | `awxbackup_namespace` | The name of the NameSpace where the `AWXBackup` resource will be created. | `awx` |
 | `awxbackup_name` | The name of the `AWXBackup` resource. Dynamically generated using execution time by default. | `awxbackup-{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M-%S') }}` |
-| `awxbackup_spec` | The `spec` of the `AWXBackup` resource. Refer [official documentation](https://github.com/ansible/awx-operator/tree/2.13.1/roles/backup) for acceptable fields. | `deployment_name: awx`<br>`backup_pvc: awx-backup-claim`<br>`clean_backup_on_delete: true` |
+| `awxbackup_spec` | The `spec` of the `AWXBackup` resource. Refer [official documentation](https://github.com/ansible/awx-operator/tree/2.14.0/roles/backup) for acceptable fields. | `deployment_name: awx`<br>`backup_pvc: awx-backup-claim`<br>`clean_backup_on_delete: true` |
 | `awxbackup_timeout` | Time to wait for backup to complete, in seconds. If exceeded, the playbook will fail. | `600` |
 | `awxbackup_keep_days` | Number of days to keep `AWXBackup` resources. `AWXBackup` resources older than this value will be deleted by this playbook. Set `0` to keep forever. | `30` |
 
@@ -46,6 +46,7 @@ Note that this playbook enables `clean_backup_on_delete` by default that only wo
 
 Create a Service Account, Role, and RoleBinding to manage the `AWXBackup` resource.
 
+<!-- shell: backup: serviceaccount -->
 ```bash
 # Specify NameSpace where your AWXBackup resources will be created.
 $ NAMESPACE=awx
@@ -118,6 +119,7 @@ In this case, the PostgreSQL db will be dumped while the job is running, so comp
 1. Add a new Container Group to make the API token usable inside the EE.
    - Enable `Customize pod specification` and put the following YAML string. `serviceAccountName` and `automountServiceAccountToken` are important to make the API token usable inside the EE.
 
+     <!-- yaml: backup: container group -->
      ```yaml
      apiVersion: v1
      kind: Pod
